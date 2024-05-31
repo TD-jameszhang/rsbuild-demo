@@ -1,0 +1,22 @@
+{
+  "name": "ca",
+  "version": "1.0.0",
+  "description": "Create React app running with rsbuild",
+  "scripts": {
+    "dev": "yarn workspaces run dev",
+    "install": "yarn workspaces install"
+  },
+  "workspaces": {
+    "packages": [
+      "apps/**/*",
+      "packages/**/*",
+      "libs/**/*"
+    ],
+    "nohoist": []
+  },
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@rsdoctor/rspack-plugin": "^0.2.2"
+  }
+}
