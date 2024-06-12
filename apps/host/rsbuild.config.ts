@@ -16,7 +16,7 @@ const assetsCDN = {
 }
 export default defineConfig({
   server: {
-    port: 3000,
+    port: 9000,
     compress: true,
     headers: {
       'Access-Control-Allow-Origin': '*'
@@ -27,7 +27,7 @@ export default defineConfig({
   },
   output: {
     sourceMap: {
-      js: sourceMapFlag,
+      js: false,
       css: !!sourceMapFlag
     }
   },
@@ -36,18 +36,26 @@ export default defineConfig({
       appendPlugins([
         new ModuleFederationPlugin({
           name: 'host',
-          remotes: {
-            demo:
-              'demo@http://localhost:3003/mf-manifest.json',
-          },
           shared: {
-            // 'react': {
-            //   singleton: true
-            // },
-            // 'react-dom': {
-            //   singleton: true
-            // },
+            'react': {
+              singleton: true
+            },
+            'react-dom': {
+              singleton: true
+            },
+            'styled-components': {
+              singleton: true
+            },
+            'uuid': {
+              singleton: true
+            },
             '@ca/core-api': {
+              singleton: true
+            },
+            'lodash': {
+              singleton: true
+            },
+            'antd': {
               singleton: true
             }
           }

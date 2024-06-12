@@ -1,8 +1,7 @@
-class CoreApi{
-  init(){
-    debugger
-    console.log('hello core api init')
+class DemoApi{
+  init(){    
+    console.log('hello Demo api init')
   }
 }
 
-export default CoreApi
+export default DemoApi

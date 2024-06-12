@@ -24,7 +24,7 @@ export default defineConfig({
     }
   },
   server: {
-    port: 3003,
+    port: 9002,
     compress: true,
     headers: {
       'Access-Control-Allow-Origin': '*'
@@ -34,12 +34,11 @@ export default defineConfig({
     sourceMap: {
       js: sourceMapFlag,
       css: !!sourceMapFlag
-    },
-    assetPrefix: 'http://localhost:3003',
+    }
   },
   dev: {
-    // 必须要配置 assetPrefix，在生产环境需要配置 output.assetPrefix
-    assetPrefix: 'http://localhost:3003',
+    // // 必须要配置 assetPrefix，在生产环境需要配置 output.assetPrefix
+    assetPrefix: 'http://localhost:9002',
     writeToDisk: true
   },
   tools: {
@@ -48,19 +47,19 @@ export default defineConfig({
       // config.output!.uniqueName = 'remote';
       appendPlugins([
         new ModuleFederationPlugin({
-          name: 'demo',
+          name: 'remote',
           filename: 'remoteEntry.js',
-          library: { type: 'var', name: 'demo'},
+          library: { type: 'var', name: 'remote'},
           exposes: {
             './Button': './src/Button.tsx',
           },
           shared: {
-            // 'react': {
-            //   singleton: true
-            // },
-            // 'react-dom': {
-            //   singleton: true
-            // },
+            'react': {
+              singleton: true
+            },
+            'react-dom': {
+              singleton: true
+            },
             '@ca/core-api': {
               singleton: true
             }

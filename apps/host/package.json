@@ -5,21 +5,23 @@
   "scripts": {
     "dev": "rsbuild dev --open",
     "build": "rsbuild build",
+    "inspect": "rsbuild inspect --verbose",
     "preview": "rsbuild preview",
     "report": "RSDOCTOR=true rsbuild build"
   },
   "dependencies": {
+    "@ca/core-api": "0.1.0",
+    "antd": "^5.18.0",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "styled-components": "^6.1.8",
-    "uuid": "^9.0.1",
-    "@ca/core-api": "0.1.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@module-federation/enhanced": "^0.1.11",
-    "@rsbuild/core": "^0.6.8",
-    "@rsbuild/plugin-react": "^0.6.8",
+    "@module-federation/enhanced": "0.1.18",
+    "@rsbuild/core": "^0.7.1",
+    "@rsbuild/plugin-react": "^0.7.1",
     "@rsdoctor/rspack-plugin": "^0.2.2",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.79",
