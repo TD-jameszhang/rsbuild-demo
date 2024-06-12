@@ -57,6 +57,9 @@ export default defineConfig({
             },
             'antd': {
               singleton: true
+            },
+            'axios': {
+              singleton: true
             }
           }
         })

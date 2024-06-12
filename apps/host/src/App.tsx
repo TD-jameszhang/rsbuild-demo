@@ -4,9 +4,11 @@ import {v4} from 'uuid'
 import { isEmpty } from 'lodash'
 import { init, loadRemote } from '@module-federation/runtime'
 import type { FederationRuntimePlugin } from '@module-federation/enhanced/runtime';
+import axios from 'axios'
 // import antd from 'antd'
 
 // console.log(antd)
+console.log(axios)
 
 import Triangle from './comps/triangle'
 
