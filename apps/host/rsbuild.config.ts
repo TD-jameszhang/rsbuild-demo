@@ -25,12 +25,6 @@ export default defineConfig({
   dev: {
     writeToDisk: true
   },
-  output: {
-    sourceMap: {
-      js: false,
-      css: !!sourceMapFlag
-    }
-  },
   tools: {
     rspack: (config, { appendPlugins }) => {
       appendPlugins([

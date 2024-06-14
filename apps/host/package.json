@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ca/core-api": "0.1.0",
+    "@types/lodash": "^4.17.5",
     "antd": "^5.18.0",
     "axios": "^1.7.2",
     "lodash": "^4.17.21",
