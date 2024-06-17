@@ -1,4 +1,4 @@
-import { defineConfig } from '@rsbuild/core';
+import { defineConfig, rspack } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack';
 import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin'
@@ -25,6 +25,11 @@ export default defineConfig({
   dev: {
     writeToDisk: true
   },
+  output: {
+    sourceMap: {
+      js: false
+    }
+  },
   tools: {
     rspack: (config, { appendPlugins }) => {
       appendPlugins([
@@ -34,27 +39,27 @@ export default defineConfig({
             'react': {
               singleton: true
             },
-            'react-dom': {
-              singleton: true
-            },
-            'styled-components': {
-              singleton: true
-            },
-            'uuid': {
-              singleton: true
-            },
-            '@ca/core-api': {
-              singleton: true
-            },
-            'lodash': {
-              singleton: true
-            },
-            'antd': {
-              singleton: true
-            },
-            'axios': {
-              singleton: true
-            }
+            // 'react-dom': {
+            //   singleton: true
+            // },
+            // 'styled-components': {
+            //   singleton: true
+            // },
+            // 'uuid': {
+            //   singleton: true
+            // },
+            // '@ca/core-api': {
+            //   singleton: true
+            // },
+            // 'lodash': {
+            //   singleton: true
+            // },
+            // 'antd': {
+            //   singleton: true
+            // },
+            // 'axios': {
+            //   singleton: true
+            // }
           }
         })
       ]);
@@ -63,6 +68,17 @@ export default defineConfig({
           new RsdoctorRspackPlugin()
         ])
       }
+      appendPlugins([
+        new rspack.CopyRspackPlugin({
+          patterns: [
+            {
+              context: './public',
+              from: './assets',
+              force: true
+            }
+          ]
+        })
+      ])
       config.resolve ||= {}
       config.resolve.alias ||= {}
       config.resolve.alias['@'] = resolve(__dirname, './src')

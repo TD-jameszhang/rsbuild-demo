@@ -5,7 +5,7 @@ import App from './App';
 import CoreApi from '@ca/core-api'
 
 
-new CoreApi().init()
+CoreApi.init()
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -6,6 +6,7 @@ import { init, loadRemote } from '@module-federation/runtime'
 import type { FederationRuntimePlugin } from '@module-federation/enhanced/runtime';
 import ViewportProvider, {useViewport} from './utils/ViewportProvider';
 import axios from 'axios'
+import CoreApi from '@ca/core-api'
 import Demo from './example/Demo'
 
 // import antd from 'antd'
@@ -41,6 +42,9 @@ init({
   }
 })
 
+CoreApi.init({
+  name: 'james'
+})
 function App() {
   const [RemoteLib, setRemoteLib] = useState(null)
   useEffect(() => {
