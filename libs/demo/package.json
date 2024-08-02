@@ -1,8 +1,8 @@
 {
   "name": "@ca/demo",
   "version": "0.1.0",
-  "description": "Talkdesk Core API definitions",
-  "author": "Talkdesk",
+  "description": "Core API definitions",
+  "author": "demo",
   "main": "./src/index.js",
   "license": "ISC"
 }

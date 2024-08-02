@@ -1,7 +1,7 @@
 {
-  "name": "@ca/core-api",
+  "name": "@ca/event-bus",
   "version": "0.1.0",
-  "description": "Core API definitions",
+  "description": "core lib for event bus",
   "author": "demo",
   "main": "./src/index.js",
   "license": "ISC"
