@@ -1,9 +1,10 @@
-export default function loadScript(url: String) {
+export default function loadScript(url: string) {
+  console.log('loadScript')
   if (url.indexOf('.js') === -1) {
     throw new Error('Invalid url in your manifest - the src must be a .js file')
   }
 
-  let element:Element
+  let element: HTMLScriptElement
 
   return new Promise<void>((resolve, reject) => {
     element = document.createElement('script')

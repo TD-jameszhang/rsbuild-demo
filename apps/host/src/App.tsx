@@ -30,25 +30,15 @@ init({
       entry: 'http://localhost:9002/remoteEntry.js'
     }
   ],
-  shared: {
-    '@ca/core-api': {
-      version: '0.1.0',
-      lib: async () => import('@ca/core-api'),
-      shareConfig: {
-        singleton: true,
-        requiredVersion: '0.1.0'
-      }
-    }
-  }
 })
 
 CoreApi.init({
   name: 'james'
 })
 function App() {
-  const [RemoteLib, setRemoteLib] = useState(null)
+  const [remoteLib, setRemoteLib] = useState<React.ComponentType | null>(null)
   useEffect(() => {
-    loadRemote('remote/Button').then(m => {
+    loadRemote('remote/Button').then((m: any) => {
       setRemoteLib(m)
       console.log(m)
     })
@@ -56,13 +46,13 @@ function App() {
 
   return (
     <ViewportProvider>
-      <h1>Basic Host -- Remote </h1>
+      <h1>Basic Host </h1>
       <h2>Host uuid: { v4() } { isEmpty() }</h2>
       <Wrapper>
         I am from demo !
       </Wrapper>
+      {/* {remoteLib && React.createElement(remoteLib)} */}
       <Demo/>
-      { RemoteLib && RemoteLib.default() }
       <svg height="100%" viewBox="-5 -4.33 10 8.66" style={{ backgroundColor: "black" }}>
           <Triangle style={{ fill: "white" }}/>
       </svg>
